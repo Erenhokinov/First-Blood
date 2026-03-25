@@ -9,4 +9,65 @@ By **Erenhokinov**
 - **Theme:** Aesthetic Dark-brown?
 
 ### Installation
-This is a manual rice. Copy files from `.config` to your `~/.config/`. 
+This is a manual rice. Copy files from `.config` to your `~/.config/`.
+
+
+ 
+Dependencies
+Core:
+
+hyprland
+
+waybar
+
+hyprpaper
+
+swaylock-effects
+
+wlogout
+
+wofi
+
+dunst
+
+Terminal & Shell:
+
+kitty
+
+wezterm
+
+fastfetch
+
+neofetch
+
+btop
+
+htop
+
+starship
+
+Multimedia:
+
+cava
+
+ncmpcpp
+
+mpd
+
+ncspot
+
+System:
+
+networkmanager
+
+bluez
+
+pipewire
+
+wireplumber
+
+brightnessctl
+
+grim
+
+slurp
