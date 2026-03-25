@@ -1,0 +1,62 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": "10 20 0 20", // Чуть меньше сверху, чтобы не давило
+    
+    "modules-left": ["keyboard-state", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/mem", "backlight", "battery", "pulseaudio", "tray"],
+   
+    "hyprland/window": {
+       "format": "❄️ {}",
+       "separate-outputs": true
+     },
+
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": ""
+        }
+    },
+
+    "clock": {
+        "format": "{:%a, %d %b, %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "pulseaudio": {
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon}",
+        "format-muted": "🔇 Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/mem": {
+        "format": "{} ",
+        "interval": 3,
+        "exec": "free -h | awk '/Mem:/{printf $3}'"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["","","","", "", "", ""]
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+}

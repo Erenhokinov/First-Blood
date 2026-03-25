@@ -1,0 +1,63 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "file",
+        "source": "/home/Gentoo/.config/fastfetch/snow.txt",
+        "width": 45,
+        "padding": {
+            "top": 2,
+            "right": 6
+        }
+    },
+    "display": {
+        "separator": " ❄️  ",
+        "color": "white"
+    },
+    "modules": [
+        "break",
+        {
+            "type": "title",
+            "color": {
+                "user": "white",
+                "at": "white",
+                "host": "white"
+            }
+        },
+        "separator",
+        {
+            "type": "os",
+            "key": "❄️  OS",
+            "keyColor": "white"
+        },
+        {
+            "type": "kernel",
+            "key": "⚙️  Ver",
+            "keyColor": "white"
+        },
+        {
+            "type": "uptime",
+            "key": "🕒 Up ",
+            "keyColor": "white"
+        },
+        {
+            "type": "packages",
+            "key": "📦 Pkg",
+            "keyColor": "white"
+        },
+        {
+            "type": "wm",
+            "key": "🪟 WM ",
+            "keyColor": "white"
+        },
+        {
+            "type": "terminal",
+            "key": "⌨️  Trm",
+            "keyColor": "white"
+        },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "circle"
+        }
+    ]
+}

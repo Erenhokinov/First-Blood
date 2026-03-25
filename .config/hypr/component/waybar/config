@@ -1,0 +1,22 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30, 
+    "margin-top": 5,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 5,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/dynamic_pill"],
+    "modules-right": ["tray", "network", "pulseaudio", "battery", "clock"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": "",
+            "active": ""
+        }
+    }
+}

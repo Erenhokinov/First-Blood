@@ -1,0 +1,58 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Liberation Mono";
+    font-size: 11px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* ШИРОКИЕ ПИЛЮЛИ-ВОРКСПЕЙСЫ (СЛЕВА) */
+#workspaces {
+    background-color: transparent;
+}
+
+#workspaces button {
+    background-color: #ffffff;
+    color: #cba6f7;
+    margin: 4px 4px;
+    padding: 0;
+    /* РАСТЯГИВАЕМ ПО ГОРИЗОНТАЛИ */
+    min-width: 35px;    /* Сделали широкими */
+    min-height: 8px;    /* Сделали тонкими по вертикали */
+    border-radius: 10px; /* Скругление, чтобы были как пилюли */
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;
+    font-size: 0px;     /* Прячем текст/иконку, оставляем только форму */
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, #ca9ee6 0%, #89b4fa 100%);
+    min-width: 55px;    /* Активный еще шире */
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background-color: #f5c2e7;
+}
+
+/* ЦЕНТРАЛЬНАЯ ПИЛЮЛЯ */
+#custom-dynamic_pill {
+    background: linear-gradient(45deg, #f9e2af, #f5c2e7, #b4befe);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 4px 0;
+}
+
+/* ПРАВЫЕ МОДУЛИ */
+#clock, #battery, #pulseaudio, #network, #tray {
+    background-color: #ffffff;
+    color: #516079;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 4px 2px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px;
+}

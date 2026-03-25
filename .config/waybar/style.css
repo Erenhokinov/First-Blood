@@ -1,0 +1,65 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Liberation Mono";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Общий стиль для ВСЕХ модулей — делаем их пилюлями */
+#keyboard-state,
+#window,
+#clock,
+#custom-mem,
+#backlight,
+#battery,
+#pulseaudio,
+#tray {
+    background: #383c4a;
+    color: #ffffff;
+    border-radius: 12px; /* Округлые края со всех сторон */
+    padding: 2px 12px;
+    margin: 0 4px; /* Расстояние между пилюлями */
+    transition: all 0.3s ease;
+}
+
+/* Эффект при наведении — чтобы "дышало" */
+#keyboard-state:hover,
+#clock:hover,
+#custom-mem:hover,
+#backlight:hover,
+#battery:hover,
+#pulseaudio:hover {
+    background: #4c566a;
+    color: #88c0d0;
+}
+
+#clock {
+    color: #88c0d0; /* Выделяем время цветом Nord */
+    font-weight: bold;
+}
+
+#battery.charging {
+    background-color: #a3be8c; /* Зеленый Nord */
+    color: #2e3440;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #bf616a; /* Красный Nord */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #bf616a;
+    }
+}

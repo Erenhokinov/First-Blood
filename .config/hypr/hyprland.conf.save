@@ -1,0 +1,127 @@
+#########################################################################################
+# SNOWY x SLCHRIS HYBRID CONFIG | ACER ASPIRE 7 | GENTOO 9999 | SKILL-FULL EDITION
+#########################################################################################
+
+# --- Мониторы (Твои настройки - это святое) ---
+monitor=, 1920x1080@100, auto, 1.2
+xwayland {
+  force_zero_scaling = true
+}
+
+# --- Переменные окружения (NVIDIA Hybrid Fixes) ---
+env = LIBVA_DRIVER_NAME,nvidia
+env = XDG_SESSION_TYPE,wayland
+env = GBM_BACKEND,nvidia-drm
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+env = WLR_NO_HARDWARE_CURSORS,1
+env = WLR_DRM_NO_ATOMIC,1
+env = __GL_MaxFramesAllowed,1
+env = __NV_PRIME_RENDER_OFFLOAD,1
+env = __VK_LAYER_NV_optimus,NVIDIA_only
+
+# --- Автозапуск ---
+exec-once = dbus-update-activation-environment --all
+exec-once = gentoo-pipewire-launcher
+exec-once = swaybg -i /home/Gentoo/Wallpapers/snow.png -m fill
+exec-once = $HOME/.config/hypr/scripts/launch_waybar
+exec-once = dunst
+exec-once = mpd
+
+# --- Ввод (Раскладка и Акселерация) ---
+input {
+    kb_layout = us,ru
+    kb_options = grp:alt_shift_toggle
+    follow_mouse = 1
+    sensitivity = 0 
+    accel_profile = flat
+    force_no_accel = true
+}
+
+# --- Внешний вид (Микс твоего стиля и автора) ---
+general {
+    gaps_in = 4
+    gaps_out = 8
+    border_size = 2
+    col.active_border = rgba(88C0D0ee) rgba(81A1C1ee) 45deg
+    col.inactive_border = rgba(4C566Aaa)
+    layout = dwindle
+}
+
+decoration {
+    rounding = 8
+    active_opacity = 1.0
+    inactive_opacity = 0.9
+    
+    blur {
+        enabled = true
+        size = 3
+        passes = 3
+        new_optimizations = true
+    }
+
+    drop_shadow = true
+    shadow_range = 4
+    shadow_render_power = 2
+    col.shadow = 0x66000000
+}
+
+# --- Анимации (Стиль автора - Overshot) ---
+animations {
+    enabled = yes
+    bezier = overshot, 0.13, 0.99, 0.29, 1.1
+    animation = windows, 1, 4, overshot, slide
+    animation = border, 1, 10, default
+    animation = fade, 1, 10, default
+    animation = workspaces, 1, 6, overshot, slidevert
+}
+
+# --- Правила окон ---
+windowrule = float, file_progress
+windowrule = float, confirm
+windowrule = float, dialog
+windowrule = float, download
+windowrule = float, notification
+windowrule = float, title:Open File
+windowrule = float, pavucontrol
+windowrule = idleinhibit focus, mpv
+
+# --- Бинды (Твои привычки + новые фичи) ---
+$mainMod = SUPER
+$terminal = kitty
+$menu = wofi --show drun
+
+bind = $mainMod, Q, killactive,
+bind = $mainMod, Return, exec, $terminal
+bind = $mainMod, E, exec, thunar
+bind = $mainMod, D, exec, $menu
+bind = $mainMod, Space, togglefloating,
+bind = $mainMod, F, fullscreen, 0
+
+# Музыка и звук
+bind = $mainMod, M, exec, $terminal -e ncmpcpp
+bind = $mainMod, P, exec, mpc toggle
+
+# Скриншоты (Grim + Slurp)
+bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
+
+# Яркость (Твои F-кнопки)
+bindle = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
+bindle = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+
+# Воркспейсы
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+
+# Перенос окон
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+
+# Мышь
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
